@@ -1,0 +1,204 @@
+:root {
+  color: #f4f7f6;
+  background: #050b0a;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 78% 12%, rgb(0 242 161 / 14%), transparent 34%),
+    radial-gradient(circle at 12% 88%, rgb(0 174 239 / 10%), transparent 32%),
+    #050b0a;
+}
+
+.challenge-card {
+  width: min(920px, 100%);
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 28px;
+  background: rgb(8 18 16 / 88%);
+  box-shadow: 0 32px 90px rgb(0 0 0 / 42%);
+}
+
+.eyebrow {
+  color: #00efa2;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+h1 {
+  margin: 18px 0 10px;
+  font-size: clamp(2.3rem, 7vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+header p {
+  max-width: 660px;
+  margin: 0;
+  color: #a8b5b1;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr);
+  gap: 24px;
+  margin: 48px 0 28px;
+}
+
+.bulb-stage,
+.status-grid {
+  border: 1px solid rgb(255 255 255 / 9%);
+  border-radius: 20px;
+  background: rgb(255 255 255 / 3%);
+}
+
+.bulb-stage {
+  min-height: 290px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+}
+
+.bulb {
+  position: relative;
+  width: 112px;
+  height: 150px;
+}
+
+.bulb__glass {
+  position: absolute;
+  inset: 0 10px 48px;
+  border: 3px solid #52615d;
+  border-radius: 50% 50% 44% 44%;
+  background: #17231f;
+  transition: 240ms ease;
+}
+
+.bulb__base {
+  position: absolute;
+  left: 35px;
+  bottom: 22px;
+  width: 42px;
+  height: 38px;
+  border-radius: 0 0 12px 12px;
+  background: repeating-linear-gradient(#71807c 0 6px, #26332f 6px 10px);
+}
+
+.bulb--on .bulb__glass {
+  border-color: #5dffd0;
+  background: #00efa2;
+  box-shadow:
+    0 0 34px rgb(0 239 162 / 80%),
+    0 0 90px rgb(0 239 162 / 42%);
+}
+
+.bulb-label {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.status-grid {
+  margin: 0;
+  padding: 8px 24px;
+}
+
+.status-grid div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  min-height: 82px;
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+.status-grid div:last-child {
+  border-bottom: 0;
+}
+
+.status-grid dt {
+  color: #80908b;
+}
+
+.status-grid dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.status-grid dd[data-state="connected"],
+.status-grid dd[data-state="accepted"] {
+  color: #00efa2;
+}
+
+.status-grid dd[data-state="error"],
+.status-grid dd[data-state="disconnected"] {
+  color: #ff746c;
+}
+
+.operation-id {
+  overflow: hidden;
+  color: #c6cfcc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
+}
+
+.run-button {
+  width: 100%;
+  padding: 17px 24px;
+  border: 0;
+  border-radius: 14px;
+  color: #032119;
+  background: linear-gradient(110deg, #00efa2, #21bde9);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.run-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+@media (max-width: 700px) {
+  .shell {
+    padding: 14px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    margin-top: 34px;
+  }
+
+  .challenge-card {
+    border-radius: 20px;
+  }
+}
